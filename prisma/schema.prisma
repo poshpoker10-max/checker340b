@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Medication {
+  ndc11        String  @id @map("ndc_11")
+  brandName    String  @map("brand_name")
+  genericName  String  @map("generic_name")
+  dosageForm   String  @map("dosage_form")
+  strength     String
+  estimatedAmp Decimal @map("estimated_amp") @db.Decimal(12, 2)
+  estimatedUra Decimal? @map("estimated_ura") @db.Decimal(12, 2)
+
+  @@index([brandName])
+  @@index([genericName])
+  @@map("medications")
+}
+
+model CoveredEntity {
+  id340b     String @id @map("340b_id")
+  entityName String @map("entity_name")
+  entityType String @map("entity_type")
+  city       String
+  state      String
+  zipCode    String @map("zip_code")
+
+  contracts HrsaContract[]
+
+  @@map("covered_entities")
+}
+
+model ContractPharmacy {
+  npi          String  @id
+  pharmacyName String  @map("pharmacy_name")
+  address      String
+  city         String
+  state        String
+  zipCode      String  @map("zip_code")
+  isIndependent Boolean @map("is_independent")
+
+  contracts HrsaContract[]
+
+  @@map("contract_pharmacies")
+}
+
+model HrsaContract {
+  contractId       Int       @id @map("contract_id")
+  entityId         String    @map("entity_id")
+  pharmacyNpi      String    @map("pharmacy_npi")
+  registrationDate DateTime  @map("registration_date") @db.Date
+  terminationDate  DateTime? @map("termination_date") @db.Date
+
+  entity   CoveredEntity    @relation(fields: [entityId], references: [id340b])
+  pharmacy ContractPharmacy @relation(fields: [pharmacyNpi], references: [npi])
+
+  @@index([entityId])
+  @@index([pharmacyNpi])
+  @@map("hrsa_contracts")
+}
+
+model ManufacturerRestriction {
+  restrictionId     Int      @id @map("restriction_id")
+  manufacturerName  String   @map("manufacturer_name")
+  affectedNdcPrefix String   @map("affected_ndc_prefix")
+  restrictionType   String   @map("restriction_type")
+  policyDetails     String   @map("policy_details")
+  lastChecked       String   @map("last_checked")
+
+  @@index([affectedNdcPrefix])
+  @@map("manufacturer_restrictions")
+}
