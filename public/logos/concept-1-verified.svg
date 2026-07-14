@@ -1,0 +1,24 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="concept1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F4C8B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D3B6E;stop-opacity:1" />
+    </linearGradient>
+    <filter id="concept1Shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="100" cy="100" r="95" fill="#F0F7FF" stroke="#0F4C8B" stroke-width="2"/>
+  <circle cx="100" cy="100" r="85" fill="url(#concept1Grad)" filter="url(#concept1Shadow)"/>
+  
+  <!-- Checkmark -->
+  <g transform="translate(100, 100)">
+    <path d="M -28 5 L -8 22 L 32 -18" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="38" cy="-28" r="14" fill="#10B981" opacity="0.95"/>
+    <circle cx="38" cy="-28" r="12" fill="none" stroke="white" stroke-width="2" opacity="0.4"/>
+  </g>
+  
+  <circle cx="100" cy="100" r="85" fill="none" stroke="white" stroke-width="1" stroke-dasharray="3,4" opacity="0.25"/>
+</svg>

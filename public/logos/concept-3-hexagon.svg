@@ -1,0 +1,27 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="hexShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#F0FDF4" stroke="#10B981" stroke-width="2"/>
+  
+  <!-- Hexagon -->
+  <polygon points="100,30 160,60 160,140 100,170 40,140 40,60" fill="url(#hexGradient)" stroke="#059669" stroke-width="2" filter="url(#hexShadow)"/>
+  
+  <!-- Inner circle -->
+  <circle cx="100" cy="100" r="40" fill="white" opacity="0.15"/>
+  
+  <!-- Dollar sign -->
+  <g transform="translate(100, 100)">
+    <text x="0" y="12" style="font-size: 48px; font-weight: bold; fill: white; text-anchor: middle; font-family: Arial, sans-serif;">$</text>
+  </g>
+  
+  <polygon points="100,30 160,60 160,140 100,170 40,140 40,60" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+</svg>

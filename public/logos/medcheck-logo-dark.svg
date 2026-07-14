@@ -1,0 +1,40 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f7ff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="darkShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="95" fill="transparent" stroke="#0F4C8B" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Main circle with gradient -->
+  <circle cx="100" cy="100" r="85" fill="url(#darkGradient)" filter="url(#darkShadow)"/>
+  
+  <!-- Checkmark + Pill design -->
+  <g transform="translate(100, 100)">
+    <!-- Large checkmark (verification) -->
+    <path d="M -28 5 L -8 22 L 32 -18" 
+          stroke="#0F4C8B" 
+          stroke-width="8" 
+          fill="none" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+    
+    <!-- Green pill accent (healthcare) -->
+    <circle cx="38" cy="-28" r="14" fill="#10B981" opacity="0.9"/>
+    <circle cx="38" cy="-28" r="12" fill="none" stroke="#0F4C8B" stroke-width="2" opacity="0.4"/>
+  </g>
+  
+  <!-- Subtle dotted ring for polish -->
+  <circle cx="100" cy="100" r="85" 
+          fill="none" 
+          stroke="#0F4C8B" 
+          stroke-width="1" 
+          stroke-dasharray="3,4" 
+          opacity="0.15"/>
+</svg>
